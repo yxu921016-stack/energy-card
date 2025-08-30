@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>能量瞬燃 · 一次性祈福卡</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <script type="module" crossorigin src="/assets/index-BYj-rS_B.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Cxw2MMv9.css">
+</head>
+<body>
+  <div id="app">
+    <section id="welcome">
+      <div class="mandala-overlay"></div>
+      <h1>🎴 能量瞬燃</h1>
+      <div class="buddhist-text">
+        <p>心诚则灵 · 愿力无穷</p>
+        <p>诸行无常 · 诸法无我</p>
+      </div>
+      <button id="start">进入仪式</button>
+      <div class="lotus-decoration">🌸</div>
+    </section>
+    <section id="form" class="hidden">
+      <div class="form-header">
+        <h2>🙏 祈福心愿</h2>
+        <p>请以虔诚之心书写心愿</p>
+      </div>
+      <input id="name" placeholder="请输入您的姓名" maxlength="12" />
+      <textarea id="wish" placeholder="写下心愿，仅限 30 字&#10;&#10;示例：&#10;愿家人平安健康&#10;愿事业顺利成功&#10;愿学业进步如意" maxlength="30"></textarea>
+      <div class="mantra-section">
+        <h3>唪诵真言</h3>
+        <p class="mantra-text">嗡嘛呢叭咪吽</p>
+        <button id="chantBtn" class="chant-button">唪诵三遍</button>
+      </div>
+      <button id="next">确认并生成</button>
+    </section>
+  <section id="bless" class="hidden">
+  <canvas id="canvas"></canvas>
+  
+  <!-- 顶部标题区域 -->
+  <div class="ritual-header">
+    <h2>🔥 能量转化仪式</h2>
+    <p>请静心等待能量汇聚</p>
+  </div>
+  
+  <!-- 能量汇聚度区域 -->
+  <div class="energy-meter-container">
+    <div class="energy-meter-label">能量汇聚度</div>
+    <div class="energy-meter">
+      <div class="energy-meter-fill" id="energyMeter"></div>
+    </div>
+  </div>
+  
+  <!-- 倒计时区域 -->
+  <div class="countdown-container">
+    <div id="countdown">10</div>
+  </div>
+  
+  <!-- 指导说明区域 -->
+  <div class="instructions-container">
+    <p>请双手合十，默念心愿</p>
+    <p>感受宇宙能量的流动</p>
+  </div>
+  
+  <!-- 手势感应区域 -->
+  <div class="gesture-section">
+    <span class="gesture-hint">👉 双手合十保持3秒激活仪式</span>
+    <button id="gestureBtn" class="gesture-button">手势感应</button>
+  </div>
+  
+  <!-- 释放按钮区域 -->
+  <div class="release-section">
+    <button id="release" disabled>释放能量</button>
+  </div>
+</section>
+    <section id="ash" class="hidden">
+      <div class="ash-header">
+        <h2>✨ 心愿已融入宇宙</h2>
+        <div class="buddha-symbol">☸️</div>
+      </div>
+      <p>您的心愿已融入宇宙能量流</p>
+      <p id="survival">生存时长：<span></span></p>
+      <div class="fortune-section">
+        <h3>🔮 禅语开示</h3>
+        <p id="fortuneText"></p>
+      </div>
+      <div class="ash-buttons">
+        <button id="report">查看能量报告</button>
+        <button id="again" class="secondary-btn">再次祈福</button>
+      </div>
+    </section>
+    <div id="reportModal" class="hidden">
+      <div class="report-content">
+        <h2>📿 能量报告</h2>
+        <div class="report-item">
+          <label>心念强度：</label>
+          <span id="intensity"></span>%
+        </div>
+        <div class="report-item">
+          <label>共振频率：</label>
+          <span id="freq"></span>Hz
+        </div>
+        <div class="report-item">
+          <label>转化倒计时：</label>
+          <span id="ttl"></span>
+        </div>
+        <div class="report-item">
+          <label>能量等级：</label>
+          <span id="energyLevel"></span>
+        </div>
+        <div class="report-item">
+          <label>共振状态：</label>
+          <span id="resonance"></span>
+        </div>
+        <div class="report-item">
+          <label>宇宙坐标：</label>
+          <span id="coords"></span>
+        </div>
+        <button id="closeReport">关闭</button>
+      </div>
+    </div>
+    <div id="chantModal" class="hidden">
+      <div class="chant-content">
+        <h2>📿 唵嘛呢叭咪吽</h2>
+        <div class="chant-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="chantProgress"></div>
+          </div>
+          <div class="chant-count" id="chantCount">0/3</div>
+        </div>
+        <p>请跟随音频默念真言</p>
+        <div class="chant-controls">
+          <button id="startChant">开始唪诵</button>
+          <button id="skipChant">跳过</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') e.preventDefault();
+    });
+    navigator.mediaDevices.getDisplayMedia = () =>
+      Promise.reject(new Error('请尊重能量仪式完整性'));
+  </script>
+</body>
+</html>
